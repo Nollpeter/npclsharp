@@ -1,0 +1,33 @@
+﻿<Window x:Class="testWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="768" Width="1024" MouseWheel="Canvas_MouseWheel">
+    <Grid>
+        <Canvas x:Name="Canvas" HorizontalAlignment="Left" Height="695" Margin="10,33,0,0" VerticalAlignment="Top" Width="852" MouseWheel="Canvas_MouseWheel">
+            <Line X1="426" X2="426" Y1="0" Y2="695" Fill="#FFF4F4F5" Stroke="Black"/>
+            <Line X1="0" X2="{Binding ElementName=Canvas, Path=Width}" Y1="347" Y2="347" Fill="#FFF4F4F5" Stroke="Black"/>
+
+            <Border BorderThickness="2" Width="852" Margin="{Binding ElementName=Canvas}" Height="695" BorderBrush="Black">
+
+            </Border>
+        </Canvas>
+        <Button Content="Draw" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Slider x:Name="Slider_Horizontal" Value="{Binding A}" HorizontalAlignment="Left" Margin="896,102,0,0" VerticalAlignment="Top" Height="21" Width="88" Maximum="200" ValueChanged="Slider_Horizontal_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="930,81,0,0" TextWrapping="Wrap" Text="a" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding ElementName=Slider_Horizontal, Path=Minimum}" HorizontalAlignment="Left" Height="24" Margin="867,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19"/>
+        <TextBox Text="{Binding Maximum, ElementName=Slider_Horizontal}" HorizontalAlignment="Left" Height="24" Margin="989,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19"/>
+        <TextBlock Text="{Binding ElementName=Slider_Horizontal,Path=Value}" HorizontalAlignment="Left" Margin="930,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Slider x:Name="Slider_Vertical" Value="0" HorizontalAlignment="Left" Margin="896,178,0,0" VerticalAlignment="Top" Height="20" Width="88" Maximum="200" Minimum="1" ValueChanged="Slider_Vertical_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="930,156,0,0" TextWrapping="Wrap" Text="b" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Minimum, ElementName=Slider_Vertical}" HorizontalAlignment="Left" Height="24" Margin="867,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19"/>
+        <TextBox Text="{Binding Maximum, ElementName=Slider_Vertical}" HorizontalAlignment="Left" Height="24" Margin="989,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19"/>
+        <TextBlock Text="{Binding Value, ElementName=Slider_Vertical}" HorizontalAlignment="Left" Margin="930,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Slider x:Name="Slider_Periods" Value="0" HorizontalAlignment="Left" Margin="896,254,0,0" VerticalAlignment="Top" Height="20" Width="88" Maximum="30" Minimum="1" ValueChanged="Slider_Periods_ValueChanged" SmallChange="1" IsSnapToTickEnabled="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="930,232,0,0" TextWrapping="Wrap" Text="periods" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Minimum, ElementName=Slider_Periods}" HorizontalAlignment="Left" Height="24" Margin="867,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19"/>
+        <TextBox Text="{Binding Maximum, ElementName=Slider_Periods}" HorizontalAlignment="Left" Height="24" Margin="989,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19"/>
+        <TextBlock Text="{Binding Value, ElementName=Slider_Periods}" HorizontalAlignment="Left" Margin="930,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="114,0,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>
