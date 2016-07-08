@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp", "PortableClassLibrary_NP\npclsharp.csproj", "{40D4718A-5FA1-43EE-85F9-EA9DAE4C2B96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp", "npclsharp\npclsharp.csproj", "{40D4718A-5FA1-43EE-85F9-EA9DAE4C2B96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp.test", "test\npclsharp.test.csproj", "{28793D40-0BE5-4E80-8FA7-E135B119B1F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp.test", "npclsharp.test\npclsharp.test.csproj", "{28793D40-0BE5-4E80-8FA7-E135B119B1F5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{40D4718A-5FA1-43EE-85F9-EA9DAE4C2B96} = {40D4718A-5FA1-43EE-85F9-EA9DAE4C2B96}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp.wpfdemo", "testWPF\npclsharp.wpfdemo.csproj", "{274B0640-F6F6-42ED-93B2-D10C07850FB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp.wpfdemo", "npclsharp.wpfdemo\npclsharp.wpfdemo.csproj", "{274B0640-F6F6-42ED-93B2-D10C07850FB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

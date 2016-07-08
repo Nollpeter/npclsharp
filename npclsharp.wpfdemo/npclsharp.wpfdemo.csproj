@@ -95,7 +95,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PortableClassLibrary_NP\npclsharp.csproj">
+    <ProjectReference Include="..\npclsharp\npclsharp.csproj">
       <Project>{40d4718a-5fa1-43ee-85f9-ea9dae4c2b96}</Project>
       <Name>npclsharp</Name>
     </ProjectReference>

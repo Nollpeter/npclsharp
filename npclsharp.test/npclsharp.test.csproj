@@ -56,11 +56,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PortableClassLibrary_NP\npclsharp.csproj">
+    <ProjectReference Include="..\npclsharp\npclsharp.csproj">
       <Project>{40d4718a-5fa1-43ee-85f9-ea9dae4c2b96}</Project>
       <Name>npclsharp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\testWPF\npclsharp.wpfdemo.csproj">
+    <ProjectReference Include="..\npclsharp.wpfdemo\npclsharp.wpfdemo.csproj">
       <Project>{274b0640-f6f6-42ed-93b2-d10c07850fb9}</Project>
       <Name>npclsharp.wpfdemo</Name>
     </ProjectReference>
