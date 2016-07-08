@@ -95,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PortableClassLibrary_NP\PortableClassLibrary_NP.csproj">
+    <ProjectReference Include="..\PortableClassLibrary_NP\npclsharp.csproj">
       <Project>{40d4718a-5fa1-43ee-85f9-ea9dae4c2b96}</Project>
-      <Name>PortableClassLibrary_NP</Name>
+      <Name>npclsharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
