@@ -39,6 +39,7 @@
     <Compile Include="Algorithms\ExpressionAlgorithms\PostFixForm.cs" />
     <Compile Include="Algorithms\SortingAlgorithms\QuickSort.cs" />
     <Compile Include="Comparer.cs" />
+    <Compile Include="Containers\BinaryTree.cs" />
     <Compile Include="Containers\Heap.cs" />
     <Compile Include="Containers\PriorityQueue.cs" />
     <Compile Include="MathLibrary\Function.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="MathLibrary\Polynomial.cs" />
     <Compile Include="MathLibrary\PreciseNumber.cs" />
     <Compile Include="MathLibrary\SetExpression.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

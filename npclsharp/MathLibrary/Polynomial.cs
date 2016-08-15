@@ -7,8 +7,8 @@ namespace PortableClassLibrary_NP.MathLibrary
 {
     public class Polynomial
     {
-        public List<int> kitevok = new List<int>();
-        public List<double> szorzok = new List<double>();
+        public List<Int32> kitevok = new List<Int32>();
+        public List<Double> szorzok = new List<Double>();
 
     }
 }

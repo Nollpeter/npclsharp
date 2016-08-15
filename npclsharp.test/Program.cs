@@ -10,8 +10,8 @@ namespace test
     {
         class A
         {
-            public List<int> lista = new List<int>();
-            public readonly int testmember;
+            public List<Int32> lista = new List<Int32>();
+            public readonly Int32 testmember;
             public event EventHandler initialize;
             public A()
             {
@@ -35,12 +35,12 @@ namespace test
                 
             }
         }
-        static void Main(string[] args)
+        static void Main(String[] args)
         {
             //PortableClassLibrary_NP.Containers.PriorityQueue<int> minQ = new PortableClassLibrary_NP.Containers.PriorityQueue<int>(PortableClassLibrary_NP.OrderType.Ascending);
             //minQ.Insert(10, 10);
-            PortableClassLibrary_NP.MathLibrary.Function f = new PortableClassLibrary_NP.MathLibrary.Function(function,new PortableClassLibrary_NP.MathLibrary.SetExpression("0","inf",new double[]{}));
-            double result = f.Derivative().Derivative().Derivative()[1000];
+            PortableClassLibrary_NP.MathLibrary.Function f = new PortableClassLibrary_NP.MathLibrary.Function(function,new PortableClassLibrary_NP.MathLibrary.SetExpression("0","inf",new Double[]{}));
+            Double result = f.Derivative().Derivative().Derivative()[1000];
             Console.WriteLine(result.ToString());
             Console.WriteLine(f.NthDerivative(3)[4].ToString());
             Console.WriteLine(Convert.ToDouble((2/(1000*1000*1000))).ToString());
@@ -52,7 +52,7 @@ namespace test
             mw.Show();
              
         }
-        static double function (double x)
+        static Double function (Double x)
         {
             return x*x;
         }

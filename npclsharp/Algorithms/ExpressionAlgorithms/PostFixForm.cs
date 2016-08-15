@@ -7,15 +7,15 @@ namespace PortableClassLibrary_NP.Algorithms.ExpressionAlgorithms
 {
     public struct Token
     {
-        public string Value;
+        public String Value;
         public enum Type { Constant, Variable, Bracket, Operator };
-        public double priority;
+        public Double priority;
     }
     
     public class PostFixForm
     {
-        List<string> operators = new List<string>(){ "+","-","*","/","sqrt"};
-        public static List<Token> Tokenize(string input)
+        List<String> operators = new List<String>(){ "+","-","*","/","sqrt"};
+        public static List<Token> Tokenize(String input)
         {
             List<Token> list = new List<Token>();
 

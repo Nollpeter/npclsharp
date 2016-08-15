@@ -24,11 +24,11 @@ namespace testWPF
     public partial class MainWindow : Window
     {
         
-        const double maxdouble = 10e12;
-        const double mindouble = 10e-12;
-        const double from = -100;
-        const double to = 100;
-        const double step = 1;
+        const Double maxdouble = 10e12;
+        const Double mindouble = 10e-12;
+        const Double from = -100;
+        const Double to = 100;
+        const Double step = 1;
         PortableClassLibrary_NP.MathLibrary.Function func, func2, taylorseries;
         private FunctionDecimal funcDec, taylorseriesDecimal;
         public MainWindow()
@@ -46,27 +46,27 @@ namespace testWPF
             context.A = 10;
             context.B = 10;
             PreciseNumber a = new PreciseNumber("584753435875487,3548978458789719325136278327153216731932751");
-            PreciseNumber b = new PreciseNumber(512300341.911);
-            var c= a+b;
-            var str = a.ToDouble();
+            //PreciseNumber b = new PreciseNumber(512300341.911);
+            //var c= a+b;
+            //var str = a.ToDouble();
         }
-        private double[] emptyarray()
+        private Double[] emptyarray()
         {
-            return new double[] { };
+            return new Double[] { };
         }
-        private double f (double x)
+        private Double f (Double x)
         {
             return Math.Cos(x);
             //return (x * x*x*x);
             //return -1 * Math.Sin(x);
            
         }
-        private decimal fdecimal (decimal x)
+        private Decimal fdecimal (Decimal x)
         {
-            return (decimal)Math.Cos((double)x);
+            return (Decimal)Math.Cos((Double)x);
         }
         
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(Object sender, RoutedEventArgs e)
         {
             //DrawPoints(func);
             DrawPoints(taylorseriesDecimal);
@@ -78,11 +78,11 @@ namespace testWPF
         List<Line> CoordPoints = new List<Line>();
         public struct DataContexts
         {
-            public decimal A { get; set; }
-            public decimal B { get; set; }
+            public Decimal A { get; set; }
+            public Decimal B { get; set; }
         }
-        private int width;
-        public int Width
+        private Int32 width;
+        public Int32 Width
         {
             get { return width; }
             private set
@@ -95,18 +95,18 @@ namespace testWPF
         {
            // CoordPoints.Clear();
             //MessageBox.Show(f[152.0].ToString());
-            double baseY = Canvas.Height / 2;
-            double baseX = Canvas.Width / 2;
-            for (double i = from; i < to; i += step)
+            Double baseY = Canvas.Height / 2;
+            Double baseX = Canvas.Width / 2;
+            for (Double i = from; i < to; i += step)
             {
-                decimal val, val2;
+                Decimal val, val2;
                 //if (f.Dimension.Contains((decimal)i / context.B))
                 {
                     
-                    val = (decimal)baseY - context.A * f[(decimal)i / context.B];
+                    val = (Decimal)baseY - context.A * f[(Decimal)i / context.B];
                     //if (f.Dimension.Contains((i + step) / context.B))
                     {
-                        val2 = (decimal)baseY - context.A * f[(decimal)(i + step) / context.B];
+                        val2 = (Decimal)baseY - context.A * f[(Decimal)(i + step) / context.B];
                         //if (val > 0)
                         {
                             //if (!double.IsNaN(val) && !double.IsNaN(val2))
@@ -117,8 +117,8 @@ namespace testWPF
                                 r.StrokeThickness = 1;
                                 r.X1 = baseX + i;
                                 r.X2 = baseX + i + step;
-                                r.Y1 = (double)val;
-                                r.Y2 = (double)val2;
+                                r.Y1 = (Double)val;
+                                r.Y2 = (Double)val2;
                                 r.Fill = Brushes.Black;
                                 r.Stroke = Brushes.Red;
                                 r.Visibility = System.Windows.Visibility.Visible;
@@ -138,35 +138,35 @@ namespace testWPF
         
         private static Action EmptyDelegate = delegate() { };
 
-        private void Canvas_MouseWheel(object sender, MouseWheelEventArgs e)
+        private void Canvas_MouseWheel(Object sender, MouseWheelEventArgs e)
         {
             //MessageBox.Show(e.Delta.ToString());
         }
 
-        private void Slider_Horizontal_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Slider_Horizontal_ValueChanged(Object sender, RoutedPropertyChangedEventArgs<Double> e)
         {
-            context.A = (decimal)Slider_Horizontal.Value;
+            context.A = (Decimal)Slider_Horizontal.Value;
         }
 
-        private void Slider_Vertical_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Slider_Vertical_ValueChanged(Object sender, RoutedPropertyChangedEventArgs<Double> e)
         {
-            context.B = (decimal)Slider_Vertical.Value;
+            context.B = (Decimal)Slider_Vertical.Value;
         }
 
-        private void Slider_Periods_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Slider_Periods_ValueChanged(Object sender, RoutedPropertyChangedEventArgs<Double> e)
         {
             if(func!=null)
             {
                 Button_Click_1(sender, e);
-                taylorseries = func.TaylorSeries((int)Slider_Periods.Value);
+                taylorseries = func.TaylorSeries((Int32)Slider_Periods.Value);
                 DrawPoints(taylorseriesDecimal);
             }
             
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(Object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < CoordPoints.Count; i++)
+            for (Int32 i = 0; i < CoordPoints.Count; i++)
             {
                 CoordPoints[i].Visibility = System.Windows.Visibility.Hidden;
                 Canvas.Children.Remove(CoordPoints[i]);
@@ -175,5 +175,6 @@ namespace testWPF
             CoordPoints.Clear();
             //Canvas.Children.Clear();
         }
+        
     }
 }

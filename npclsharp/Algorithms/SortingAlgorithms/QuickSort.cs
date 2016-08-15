@@ -23,7 +23,7 @@ namespace PortableClassLibrary_NP.Algorithms.SortingAlgorithms
     public class QuickSort<T,I,R> where T : ICollection<IEnumerable<I>>,IList<I> where I:IComparable<I> where R:IComparable<R>
     {
         
-        int[] alma = new int[10];
+        Int32[] alma = new Int32[10];
         //A<Array<int>,int> alf = new A<Array<int>,int>(new int[10]);
         IList<I> container;
         //A<List<int>> teszt = new A<List<int>>();
@@ -46,7 +46,7 @@ namespace PortableClassLibrary_NP.Algorithms.SortingAlgorithms
         {
             
         }
-        private int Partition(T container, int left,int right)
+        private Int32 Partition(T container, Int32 left,Int32 right)
         {
             I pivot = container[left];
             while(true)

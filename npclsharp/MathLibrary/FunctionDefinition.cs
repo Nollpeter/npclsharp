@@ -8,23 +8,23 @@ namespace PortableClassLibrary_NP.MathLibrary
 {
     public class FunctionDefinition
     {
-        char[] operands = new char[]{'+','-','*','/' };
-        const string pattern = @"(\-)|(\+)|(\*)|(\/)|(\^)";
-        const string functionpattern = @"sin|cos|tan|acos|asin|atan|sinh|cosh|tanh|abs";
-        public delegate double FunctionDefintion(double Dimension);
+        Char[] operands = new Char[]{'+','-','*','/' };
+        const String pattern = @"(\-)|(\+)|(\*)|(\/)|(\^)";
+        const String functionpattern = @"sin|cos|tan|acos|asin|atan|sinh|cosh|tanh|abs";
+        public delegate Double FunctionDefintion(Double Dimension);
         FunctionDefintion def = null;
-        public FunctionDefinition(string expr)
+        public FunctionDefinition(String expr)
         {
-            string temp = expr.ToLower();
-            string s = "sin(a)+b+2-2/3*5";
+            String temp = expr.ToLower();
+            String s = "sin(a)+b+2-2/3*5";
             //string pattern = @"(\-)|(\+)";
             Regex regex = new Regex(pattern);
             
-            string[] s2 = regex.Split(s);//s.Tokenize(new char[] {'+','-'});
-            string expression = temp.IgnoreChar(new char[] { '(', ')' });
+            String[] s2 = regex.Split(s);//s.Tokenize(new char[] {'+','-'});
+            String expression = temp.IgnoreChar(new Char[] { '(', ')' });
             def = new FunctionDefintion((a) => { return a + 2; });
             def += new FunctionDefintion((a) => { return a *5; });
-            double x = (def(4));
+            Double x = (def(4));
             
         }
         
@@ -33,13 +33,13 @@ namespace PortableClassLibrary_NP.MathLibrary
     public static class Extensions
     {
         
-        public static string[] Tokenize(this string input, IEnumerable<char> characters)
+        public static String[] Tokenize(this String input, IEnumerable<Char> characters)
         {
-            List<string> returnList = new List<string>();
+            List<String> returnList = new List<String>();
             if( characters.Count() > 0)
             {
-                string[] temp = input.Split(characters.ElementAt(0));
-                foreach (string item in temp)
+                String[] temp = input.Split(characters.ElementAt(0));
+                foreach (String item in temp)
                 {
                     returnList.Add(item);
                     returnList.Add(characters.ElementAt(0).ToString());
@@ -47,13 +47,13 @@ namespace PortableClassLibrary_NP.MathLibrary
             }
             if( characters.Count() > 1)
             {
-                for (int i = 1; i < characters.Count(); i++)
+                for (Int32 i = 1; i < characters.Count(); i++)
                 {
-                    List<string> tempList = new List<string>();
-                    foreach (string item in returnList)
+                    List<String> tempList = new List<String>();
+                    foreach (String item in returnList)
                     {
-                        string[] temp = item.Split(characters.ElementAt(i));
-                        foreach (string item2 in temp)
+                        String[] temp = item.Split(characters.ElementAt(i));
+                        foreach (String item2 in temp)
                         {
                             tempList.Add(item2);
                             //tempList.Add(characters.ElementAt(i).ToString());
@@ -66,16 +66,16 @@ namespace PortableClassLibrary_NP.MathLibrary
 
             return returnList.ToArray();
         }
-        public static string[] Tokenize(this IEnumerable<string> input, char character)
+        public static String[] Tokenize(this IEnumerable<String> input, Char character)
         {
-            List<string> a, b;
+            List<String> a, b;
             
-            return new string[] { };
+            return new String[] { };
         }
-        public static string IgnoreChar(this string input, char character)
+        public static String IgnoreChar(this String input, Char character)
         {
-            List<char> goodvalues = new List<char>();
-            for (int i = 0; i < input.Length; i++)
+            List<Char> goodvalues = new List<Char>();
+            for (Int32 i = 0; i < input.Length; i++)
             {
                 if (character != input[i])
                 {
@@ -83,19 +83,19 @@ namespace PortableClassLibrary_NP.MathLibrary
                     
                 }
             }
-            return string.Concat(goodvalues);
+            return String.Concat(goodvalues);
         }
-        public static string IgnoreChar(this string input, IEnumerable<char> character)
+        public static String IgnoreChar(this String input, IEnumerable<Char> character)
         {
-            List<char> goodvalues = new List<char>();
-            for (int i = 0; i < input.Length; i++)
+            List<Char> goodvalues = new List<Char>();
+            for (Int32 i = 0; i < input.Length; i++)
             {
                 if (!character.Any((a) => { return a == input[i]; }))
                 {
                     goodvalues.Add(input[i]);
                 }
             }
-            return string.Concat(goodvalues);
+            return String.Concat(goodvalues);
         }
 
     }

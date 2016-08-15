@@ -6,7 +6,7 @@ using System.Text;
 namespace PortableClassLibrary_NP
 {
     public enum OrderType { Ascending, Descending }
-    public delegate int ComparingDelegate<T>(T first, T second);
+    public delegate Int32 ComparingDelegate<T>(T first, T second);
     public class Comparer<T> where T : IComparable<T>
     {
         
@@ -20,7 +20,7 @@ namespace PortableClassLibrary_NP
         {
             compareFunction = function;
         }
-        public bool Compare(T first, T second)
+        public Boolean Compare(T first, T second)
         {
             switch (relation)
             {
@@ -34,7 +34,7 @@ namespace PortableClassLibrary_NP
                     }
             }
         }
-        public int Compare(ComparingDelegate<T> function, T first, T second)
+        public Int32 Compare(ComparingDelegate<T> function, T first, T second)
         {
             return function(first, second);
         }

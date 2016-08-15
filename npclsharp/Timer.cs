@@ -16,12 +16,12 @@ namespace PortableClassLibrary_NP
     public class Timer : ITimer
     {
         //private bool _continueTicking;
-        private double interval;
+        private Double interval;
         private System.Threading.Timer timer;
-        public double Interval
+        public Double Interval
         {
             get { return interval; }
-            set { interval = value; if (timer != null) timer.Change(0, (int)Interval); }
+            set { interval = value; if (timer != null) timer.Change(0, (Int32)Interval); }
         }
         public Timer()
         {
@@ -38,11 +38,11 @@ namespace PortableClassLibrary_NP
 
         public void Start()
         {
-            timer = new System.Threading.Timer(internalTick, this,0,(int)Interval);
+            timer = new System.Threading.Timer(internalTick, this,0,(Int32)Interval);
             //System.Threading.Tasks.Task.WaitAny(null, TimeSpan.FromMilliseconds(interval));
         }
 
-        private void internalTick(object state)
+        private void internalTick(Object state)
         {
             if (Tick != null)
                 Tick(this, new EventArgs());

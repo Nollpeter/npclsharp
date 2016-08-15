@@ -12,7 +12,7 @@ namespace PortableClassLibrary_NP.Containers
     class Heap<T>: IHeap<T>, ICollection<T> where T:IComparable<T>
     {
         private List<T> innerList;
-        int count;
+        Int32 count;
         Comparer<T> comparer;
         ComparingDelegate<T> comparingfunction;
 
@@ -23,11 +23,11 @@ namespace PortableClassLibrary_NP.Containers
             comparer = new Comparer<T>(OrderingFunction);
         }
 
-        private int placeRight(int index)
+        private Int32 placeRight(Int32 index)
         {
             return 2 * index + 1;
         }
-        private int placeLeft(int index)
+        private Int32 placeLeft(Int32 index)
         {
             return 2 * index;
         }
@@ -38,7 +38,7 @@ namespace PortableClassLibrary_NP.Containers
 
         public void Add(T item)
         {
-            int ind = 0;
+            Int32 ind = 0;
             while(ind < 2*Count+1)
             {
                 if (comparer.Compare(comparingfunction, item, innerList[ind])==-1)
@@ -60,27 +60,27 @@ namespace PortableClassLibrary_NP.Containers
             innerList.Clear();
         }
 
-        public bool Contains(T item)
+        public Boolean Contains(T item)
         {
             return innerList.Contains(item);
         }
 
-        public void CopyTo(T[] array, int arrayIndex)
+        public void CopyTo(T[] array, Int32 arrayIndex)
         {
             throw new NotImplementedException();
         }
 
-        public int Count
+        public Int32 Count
         {
             get { throw new NotImplementedException(); }
         }
 
-        public bool IsReadOnly
+        public Boolean IsReadOnly
         {
             get { throw new NotImplementedException(); }
         }
 
-        public bool Remove(T item)
+        public Boolean Remove(T item)
         {
             throw new NotImplementedException();
         }

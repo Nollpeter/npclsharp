@@ -7,14 +7,14 @@ namespace PortableClassLibrary_NP.MathLibrary
 {
     public class SetExpression
     {
-        bool neginfstart;
-        bool infend;
-        bool openStart;
-        bool openEnd;
-        double from;
-        double to;
-        double[] exclude;
-        public SetExpression(string from, string to, double[] exlcude)
+        Boolean neginfstart;
+        Boolean infend;
+        Boolean openStart;
+        Boolean openEnd;
+        Double from;
+        Double to;
+        Double[] exclude;
+        public SetExpression(String from, String to, Double[] exlcude)
         {
             if (from == "neginf")
                 neginfstart = true;
@@ -30,15 +30,15 @@ namespace PortableClassLibrary_NP.MathLibrary
             this.exclude = exlcude;
            
         }
-        public SetExpression(string interval, double[] exclude)
+        public SetExpression(String interval, Double[] exclude)
         {
-            char first = interval[0];
-            char last = interval[interval.Length - 1];
+            Char first = interval[0];
+            Char last = interval[interval.Length - 1];
             openStart = first == '(';
             openEnd = last == ')';
             interval = interval.Remove(0, 1);
             interval = interval.Remove(interval.Length - 1, 1);
-            string[] exp = interval.Split(',');
+            String[] exp = interval.Split(',');
 
             if (exp[0] == "neginf")
                 neginfstart = true;
@@ -54,7 +54,7 @@ namespace PortableClassLibrary_NP.MathLibrary
             this.exclude = exclude;
             
         }
-        public bool Contains(double value)
+        public Boolean Contains(Double value)
         {
             if(exclude.Contains(value))
             {

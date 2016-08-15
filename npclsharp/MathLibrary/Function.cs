@@ -9,37 +9,47 @@ namespace PortableClassLibrary_NP.MathLibrary
     {
 
     }
+
+    public class Function<T>
+    {
+        public Func<T,T> function { get; set; }
+
+        public Function()
+        {
+        }
+    }
     public class Function : IFunction
     {
+        
         FunctionDefintion[] trigonoderivs = new FunctionDefintion[] { Math.Sin, Math.Cos, MinusSin, MinusCos, };
-        List<double> DimensionExclude { get; set; }
-        public delegate double FunctionDefintion(double Dimension);
-        public double definitionvalx, definitionvalx0;
+        List<Double> DimensionExclude { get; set; }
+        public delegate Double FunctionDefintion(Double Dimension);
+        public Double definitionvalx, definitionvalx0;
         public FunctionDefintion Defintion { get; set; }
         public SetExpression Dimension;
-        double[] PolynomialMults;
-        public Function(double[] PolinomialMultipliers,FunctionDefintion DefinitionOfFunction, SetExpression Dimension)
+        Double[] PolynomialMults;
+        public Function(Double[] PolinomialMultipliers,FunctionDefintion DefinitionOfFunction, SetExpression Dimension)
         {
             PolynomialMults = PolinomialMultipliers;
             Defintion = DefinitionOfFunction;
-            DimensionExclude = new List<double>();
+            DimensionExclude = new List<Double>();
             this.Dimension = Dimension;
         }
         public Function(FunctionDefintion DefinitionOfFunction, SetExpression Dimension)
         {
             Defintion = DefinitionOfFunction;
-            DimensionExclude = new List<double>();
+            DimensionExclude = new List<Double>();
             this.Dimension = Dimension;
         }
-        private static double MinusSin(double x)
+        private static Double MinusSin(Double x)
         {
             return -1 * Math.Sin(x);
         }
-        private static double MinusCos(double x)
+        private static Double MinusCos(Double x)
         {
             return -1 * Math.Cos(x);
         }
-        public Function Derivative(int precision = 100000)
+        public Function Derivative(Int32 precision = 100000)
         {
             FunctionDefintion derivativeDef;
             if (Defintion == Math.Sin)
@@ -55,8 +65,9 @@ namespace PortableClassLibrary_NP.MathLibrary
             {
                 derivativeDef = new FunctionDefintion((D) =>
                 {
-                    double x = D - (double)(1 / (double)precision);
-                    return ((double)(Defintion(x) - Defintion(D)) / (double)(x - D));
+
+                    Double x = D - (Double)(1 / (Double)precision);
+                    return ((Double)(Defintion(x) - Defintion(D)) / (Double)(x - D));
                     //double h = 1 / (double)precision;
                     //return (Defintion(D+h)-Defintion(D-h))/(double)(2*h);
                     ///(double)precision;
@@ -78,7 +89,7 @@ namespace PortableClassLibrary_NP.MathLibrary
             if (definition == "sin(x)")
                 return new Function(new FunctionDefintion((a) => { return Math.Cos(a); }), Dimension);
         }*/
-        public Function NthDerivative(int n,int precision = 100000)
+        public Function NthDerivative(Int32 n,Int32 precision = 100000)
         {
             
             if(n >= 1)
@@ -98,7 +109,7 @@ namespace PortableClassLibrary_NP.MathLibrary
                 else
                 {
                     derivativeFunc = this.Derivative(precision);
-                    for (int i = 0; i < n - 1; i++)
+                    for (Int32 i = 0; i < n - 1; i++)
                     {
                        derivativeFunc = derivativeFunc.Derivative(precision);
                     
@@ -112,7 +123,7 @@ namespace PortableClassLibrary_NP.MathLibrary
                 return this;
             }
         }
-        public double this[double x]
+        public Double this[Double x]
         {
             get
             {
@@ -124,17 +135,17 @@ namespace PortableClassLibrary_NP.MathLibrary
             }
            
         }
-        public double DefiniteRiemannIntegral(double from, double to, long n = 1000)
+        public Double DefiniteRiemannIntegral(Double from, Double to, Int64 n = 1000)
         {
-            double sum = 0;
-            for (double i = from; i < to; i += (to-from)/(double)n )
+            Double sum = 0;
+            for (Double i = from; i < to; i += (to-from)/(Double)n )
             {
                 sum += Defintion(i);
             }
-            return sum/(double)n;
+            return sum/(Double)n;
                 //throw new NotImplementedException();
         }
-        public Function Antiderivative(int precision = 10000)
+        public Function Antiderivative(Int32 precision = 10000)
         {
             //Function 
             FunctionDefintion def = new FunctionDefintion((D) => 
@@ -143,26 +154,26 @@ namespace PortableClassLibrary_NP.MathLibrary
             });
             return new Function(def,Dimension);
         }
-        private int Factiorial (int n)
+        private Int32 Factiorial (Int32 n)
         {
             if(n<=1){ return 1; }
             else { return n * Factiorial(n - 1); }
         }
-        private double power(double x, int k)
+        private Double power(Double x, Int32 k)
         {
             if (k == 0) return 1;
-            double temp = x;
-            for (int i = 0; i < k-1; i++)
+            Double temp = x;
+            for (Int32 i = 0; i < k-1; i++)
 			{
 			    temp*=x;
 			}
             return temp;
         }
-        public Function SplineInterpol (double from, double to, double step=0.1)
+        public Function SplineInterpol (Double from, Double to, Double step=0.1)
         {
             //Polynomial pol = new Polynomial();
-            List<double> dimension = new List<double>();
-            for (double i = from; i < to; i+= step)
+            List<Double> dimension = new List<Double>();
+            for (Double i = from; i < to; i+= step)
             {
                 if (Dimension.Contains(i))
                 {
@@ -172,7 +183,7 @@ namespace PortableClassLibrary_NP.MathLibrary
             
             return new Function((x) =>
             {
-               List<double> ljs = new List<double>();
+               List<Double> ljs = new List<Double>();
                /*for (int i = 0; i < dimension.Count; i++)
                {
                    double temp = 1;
@@ -183,19 +194,19 @@ namespace PortableClassLibrary_NP.MathLibrary
                    }
                    ljs.Add(temp);
                }*/
-                for (double i = from; i < to; i+=step)
+                for (Double i = from; i < to; i+=step)
 			    {
-			        double temp = 1;
-                    for (double j = from; j < to; j+=step)
+			        Double temp = 1;
+                    for (Double j = from; j < to; j+=step)
                     {
                         if(i!=j)
                         temp *= (x-j)/(i-j);
                     }
                     ljs.Add(temp);
 			    }
-                double temp2 = 0;
-                int position = 0;
-                for (double i = from; i < to; i+=step)
+                Double temp2 = 0;
+                Int32 position = 0;
+                for (Double i = from; i < to; i+=step)
                 {
                     if(Dimension.Contains(i))
                     temp2 += ljs[position]*Defintion(i);
@@ -205,7 +216,7 @@ namespace PortableClassLibrary_NP.MathLibrary
             },Dimension);
             //throw new NotImplementedException();
         }
-        public Function TaylorSeries (int periods)
+        public Function TaylorSeries (Int32 periods)
         {
             //new FunctionDefinition("Sin(x)");
             /*double a =0;
@@ -228,17 +239,17 @@ namespace PortableClassLibrary_NP.MathLibrary
                 return sum;
             
             }, Dimension);*/
-            double a = 0;
+            Double a = 0;
             
             return new Function((x) =>
             {
-                double sum = 0;
-                for (int i = 0; i < periods; i++)
+                Double sum = 0;
+                for (Int32 i = 0; i < periods; i++)
                 {
 
                     //double derivval = NthDerivative(i)[a];
-                    int fact = Factiorial(i);
-                    sum += (Math.Round((this.NthDerivative(i)[x] / (double)fact),10) * power((x), i));
+                    Int32 fact = Factiorial(i);
+                    sum += (Math.Round((this.NthDerivative(i)[x] / (Double)fact),10) * power((x), i));
                 }
 
                 return sum;

@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp.test", "npclsharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp.wpfdemo", "npclsharp.wpfdemo\npclsharp.wpfdemo.csproj", "{274B0640-F6F6-42ED-93B2-D10C07850FB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "npclsharp.unittesting", "npclsharp.unittesting\npclsharp.unittesting.csproj", "{7DDB1E53-8F60-4435-A222-C8FB943329F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{274B0640-F6F6-42ED-93B2-D10C07850FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{274B0640-F6F6-42ED-93B2-D10C07850FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{274B0640-F6F6-42ED-93B2-D10C07850FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DDB1E53-8F60-4435-A222-C8FB943329F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DDB1E53-8F60-4435-A222-C8FB943329F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DDB1E53-8F60-4435-A222-C8FB943329F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DDB1E53-8F60-4435-A222-C8FB943329F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

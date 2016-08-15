@@ -9,9 +9,9 @@ namespace PortableClassLibrary_NP.Containers
     
     interface IPriorityQueue<T> 
     {
-        void Insert(T item, int Priority);
+        void Insert(T item, Int32 Priority);
         T Pop();
-        bool IsEmpty();
+        Boolean IsEmpty();
         T Top();
 
     }
@@ -20,17 +20,17 @@ namespace PortableClassLibrary_NP.Containers
         private struct Pair
         {
             public T Value;
-            public int Priority;
+            public Int32 Priority;
         }
         private class PriorityQueueEmptyException : Exception { }
         private List<Pair> lista;
-        private Comparer<int> comparer;
+        private Comparer<Int32> comparer;
         public PriorityQueue(OrderType MinimumOrMaximum)
         {
             lista = new List<Pair>();
-            comparer = new Comparer<int>(MinimumOrMaximum);
+            comparer = new Comparer<Int32>(MinimumOrMaximum);
         }
-        public void Insert(T item, int Priority)
+        public void Insert(T item, Int32 Priority)
         {
             lista.Add(new Pair() { Value = item, Priority = Priority });
         }
@@ -43,7 +43,7 @@ namespace PortableClassLibrary_NP.Containers
             return returnVal;
         }
 
-        public bool IsEmpty()
+        public Boolean IsEmpty()
         {
             return lista.Count == 0;
         }
@@ -55,12 +55,12 @@ namespace PortableClassLibrary_NP.Containers
         }
 
 
-        private int SearchExtremeIndex()
+        private Int32 SearchExtremeIndex()
         {
             
             if (IsEmpty()) throw new PriorityQueueEmptyException();
-            int ind = 0;
-            for (int i = 0; i < lista.Count; i++)
+            Int32 ind = 0;
+            for (Int32 i = 0; i < lista.Count; i++)
             {
                 if(comparer.Compare(lista[i].Priority, lista[ind].Priority))
                 {
@@ -87,7 +87,7 @@ namespace PortableClassLibrary_NP.Containers
             throw new NotImplementedException();
         }
 
-        public bool ContainsKey(T key)
+        public Boolean ContainsKey(T key)
         {
             throw new NotImplementedException();
         }
@@ -97,12 +97,12 @@ namespace PortableClassLibrary_NP.Containers
             get { throw new NotImplementedException(); }
         }
 
-        public bool Remove(T key)
+        public Boolean Remove(T key)
         {
             throw new NotImplementedException();
         }
 
-        public bool TryGetValue(T key, out U value)
+        public Boolean TryGetValue(T key, out U value)
         {
             throw new NotImplementedException();
         }
@@ -134,27 +134,27 @@ namespace PortableClassLibrary_NP.Containers
             throw new NotImplementedException();
         }
 
-        public bool Contains(KeyValuePair<T, U> item)
+        public Boolean Contains(KeyValuePair<T, U> item)
         {
             throw new NotImplementedException();
         }
 
-        public void CopyTo(KeyValuePair<T, U>[] array, int arrayIndex)
+        public void CopyTo(KeyValuePair<T, U>[] array, Int32 arrayIndex)
         {
             throw new NotImplementedException();
         }
 
-        public int Count
+        public Int32 Count
         {
             get { throw new NotImplementedException(); }
         }
 
-        public bool IsReadOnly
+        public Boolean IsReadOnly
         {
             get { throw new NotImplementedException(); }
         }
 
-        public bool Remove(KeyValuePair<T, U> item)
+        public Boolean Remove(KeyValuePair<T, U> item)
         {
             throw new NotImplementedException();
         }
@@ -174,27 +174,27 @@ namespace PortableClassLibrary_NP.Containers
             throw new NotImplementedException();
         }
 
-        bool ICollection<KeyValuePair<T, U>>.Contains(KeyValuePair<T, U> item)
+        Boolean ICollection<KeyValuePair<T, U>>.Contains(KeyValuePair<T, U> item)
         {
             throw new NotImplementedException();
         }
 
-        void ICollection<KeyValuePair<T, U>>.CopyTo(KeyValuePair<T, U>[] array, int arrayIndex)
+        void ICollection<KeyValuePair<T, U>>.CopyTo(KeyValuePair<T, U>[] array, Int32 arrayIndex)
         {
             throw new NotImplementedException();
         }
 
-        int ICollection<KeyValuePair<T, U>>.Count
+        Int32 ICollection<KeyValuePair<T, U>>.Count
         {
             get { throw new NotImplementedException(); }
         }
 
-        bool ICollection<KeyValuePair<T, U>>.IsReadOnly
+        Boolean ICollection<KeyValuePair<T, U>>.IsReadOnly
         {
             get { throw new NotImplementedException(); }
         }
 
-        bool ICollection<KeyValuePair<T, U>>.Remove(KeyValuePair<T, U> item)
+        Boolean ICollection<KeyValuePair<T, U>>.Remove(KeyValuePair<T, U> item)
         {
             throw new NotImplementedException();
         }
